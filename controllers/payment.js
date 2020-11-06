@@ -28,7 +28,7 @@ exports.pay = async (req, res) => {
             url: 'https://api.paystack.co/transaction/initialize',
             form: formData,
             headers: {
-                authorization: secretKey,
+                authorization: 'Bearer ' + secretKey,
             },
         };
 
@@ -63,7 +63,7 @@ exports.verify = async (req, res) => {
                 'https://api.paystack.co/transaction/verify/' +
                 encodeURIComponent(userReferenceFromInitializePayment),
             headers: {
-                authorization: secretKey,
+                authorization: 'Bearer ' + secretKey,
                 'content-type': 'application/json',
                 'cache-control': 'no-cache',
             },
