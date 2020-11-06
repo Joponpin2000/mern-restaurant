@@ -1,6 +1,10 @@
 const jwt = require('jsonwebtoken');
-const { jwtSecret } = require('../config/keys');
 const User = require('../models/User');
+const dotenv = require('dotenv');
+const config = require('../config/config');
+
+dotenv.config();
+const jwtSecret = config.JWT_SECRET
 
 exports.authenticateJWT = (req, res, next) => {
 

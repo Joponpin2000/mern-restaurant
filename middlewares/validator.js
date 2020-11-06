@@ -14,7 +14,6 @@ exports.signupValidator = [
         .withMessage('Password must be at least 6 characters long'),
 ];
 
-
 exports.loginValidator = [
     check('email')
         .isEmail()

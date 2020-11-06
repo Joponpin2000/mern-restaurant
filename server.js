@@ -8,6 +8,9 @@ const authRoutes = require('./routes/auth');
 const categoryRoutes = require('./routes/category');
 const productRoutes = require('./routes/product');
 const AllProductsRoutes = require('./routes/AllProducts');
+const paymentRoutes = require('./routes/payment');
+
+const paymentController = require('./controllers/payment');
 
 // middlewares
 app.use(bodyParser.urlencoded({
@@ -31,6 +34,10 @@ app.use('/api/category', categoryRoutes);
 app.use('/api/product', productRoutes);
 app.use('/api/products', AllProductsRoutes);
 app.use(express.static('uploads'));
+app.use('/api/paystack', paymentRoutes);
+
+app.get('/payment-success/:id', paymentController.receipt);
+
 
 connectDB();
 
